@@ -16,16 +16,17 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
 
 private val DarkColorScheme = darkColorScheme(
-        primary = Purple80,
-        secondary = PurpleGrey80,
-        tertiary = Pink80
+        primary = Purple90,
+        secondary = PurpleGrey90,
+        tertiary = Red90,
+        surface = Purple90
 )
 
 private val LightColorScheme = lightColorScheme(
-        primary = Purple40,
+        primary = Purple5,
         secondary = PurpleGrey40,
-        tertiary = Pink40
-
+        tertiary = Orange40,
+        surface = Purple5
         /* Other default colors to override
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFFFFBFE),
@@ -56,7 +57,8 @@ fun DiagonalMobileTheme(
     if (!view.isInEditMode) {
         SideEffect {
             (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
-            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
+            (view.context as Activity).window.navigationBarColor = colorScheme.background.toArgb()
+            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = !darkTheme
         }
     }
 
